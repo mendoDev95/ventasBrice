@@ -29,20 +29,17 @@ Una tienda e-commerce moderna para venta de pullovers, desarrollada con React, E
 - Git & GitHub
 - Nodemon
 
-**Estructura del Proyecto:**
-ventasBrice/
-├── backend/          # API Express.js
-├── frontend/         # Aplicación React
-├── .gitignore
-└── README.md
+## Próximas Funcionalidades
 
-**Próximas Funcionalidades:**
---Sistema de carrito de compras
---Filtros y búsqueda
---Páginas individuales de productos
---Integración con MongoDB
---Sistema de autenticación
---Pasarela de pagos
+- Sistema de carrito de compras
+- Filtros y búsqueda
+- Páginas individuales de productos
+- Integración con MongoDB
+- Sistema de autenticación
+- Pasarela de pagos
 
 **Autor:**
 Cesar Rafael Ravelo Hernández - GitHub: mendoDev95 
+
+**Licencia:**
+Este proyecto es de código abierto y está disponible bajo la MIT License.
