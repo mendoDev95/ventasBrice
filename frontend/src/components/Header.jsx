@@ -1,6 +1,6 @@
 import { useCart } from '../hooks/useCart';
 
-const Header = ({ onCartOpen }) => {
+const Header = ({ onCartOpen, onFilterOpen }) => {
     const { getCartItemsCount } = useCart();
 
     return (
@@ -11,12 +11,18 @@ const Header = ({ onCartOpen }) => {
                     <p>Encuentra tu estilo perfecto</p>
                 </div>
 
-                <button className="cart-button" onClick={onCartOpen}>
-                    🛒 Carrito
-                    {getCartItemsCount() > 0 && (
-                        <span className="cart-badge">{getCartItemsCount()}</span>
-                    )}
-                </button>
+                <div className="header-actions">
+                    <button className="filter-button" onClick={onFilterOpen}>
+                        🔍 Filtros
+                    </button>
+
+                    <button className="cart-button" onClick={onCartOpen}>
+                        🛒 Carrito
+                        {getCartItemsCount() > 0 && (
+                            <span className="cart-badge">{getCartItemsCount()}</span>
+                        )}
+                    </button>
+                </div>
             </div>
         </header>
     );
