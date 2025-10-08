@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useCart } from './hooks/useCart';
+import Header from './components/Header';
+import Cart from './components/Cart';
 import './App.css';
 
 function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const { addToCart, isInCart, getItemQuantity } = useCart();
 
   useEffect(() => {
     loadProducts();
@@ -25,9 +31,19 @@ function App() {
     }
   };
 
-  const addToCart = (product) => {
-    alert(`🎉 ¡${product.name} agregado al carrito!`);
-    // Aquí implementaremos la lógica del carrito después
+  const handleAddToCart = (product) => {
+    try {
+      addToCart(product);
+      // Podría agregar una notificación aquí en el futuro
+    } catch (error) {
+      console.error('Error agregando al carrito:', error);
+    }
+  };
+
+  const getButtonText = (product) => {
+    if (!product.inStock) return '❌ Agotado';
+    if (isInCart(product.id)) return `✅ En Carrito (${getItemQuantity(product.id)})`;
+    return '🛒 Agregar al Carrito';
   };
 
   if (loading) {
@@ -41,10 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="app-header">
-        <h1> Ventas Brice </h1>
-        <p>Encuentra tu estilo perfecto</p>
-      </header>
+      <Header onCartOpen={() => setIsCartOpen(true)} />
 
       {error && (
         <div className="error-message">
@@ -61,17 +74,17 @@ function App() {
           <div key={product.id} className="product-card">
             <div className="product-image">
               <div className="image-placeholder">
-                {product.category === 'premium' ? '🌟' : 
-                 product.category === 'deportivo' ? '⚡' : '👕'}
+                {product.category === 'premium' ? '🌟' :
+                  product.category === 'deportivo' ? '⚡' : '👕'}
               </div>
               {product.inStock && <span className="stock-badge">En Stock</span>}
             </div>
-            
+
             <div className="product-info">
               <h3>{product.name}</h3>
               <p className="product-description">{product.description}</p>
               <p className="product-price">${product.price}</p>
-              
+
               <div className="product-details">
                 <div className="detail-item">
                   <strong>Tallas:</strong> {product.sizes.join(', ')}
@@ -83,21 +96,23 @@ function App() {
                   <strong>Categoría:</strong> {product.category}
                 </div>
               </div>
-              
-              <button 
-                className="add-to-cart-btn"
-                onClick={() => addToCart(product)}
+
+              <button
+                className={`add-to-cart-btn ${isInCart(product.id) ? 'in-cart' : ''}`}
+                onClick={() => handleAddToCart(product)}
                 disabled={!product.inStock}
               >
-                {product.inStock ? '🛒 Agregar al Carrito' : '❌ Agotado'}
+                {getButtonText(product)}
               </button>
             </div>
           </div>
         ))}
       </main>
 
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+
       <footer className="app-footer">
-        <p>Desarrollado por MendoDev con React + Express + pnpm</p>
+        <p> Desarrollado por mendoDev95 con React + Express + pnpm </p>
       </footer>
     </div>
   );

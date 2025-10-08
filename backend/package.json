@@ -8,8 +8,8 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "mendoDev",
-  "license": "ISC",
+  "author": "mendoDev95",
+  "license": "MIT",
   "packageManager": "pnpm@10.18.1",
   "dependencies": {
     "cors": "^2.8.5",
