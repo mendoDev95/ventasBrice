@@ -1,0 +1,106 @@
+/* ===== APP LAYOUT ===== */
+.App {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    min-height: 100vh;
+}
+
+/* Header del App */
+.app-header {
+    text-align: center;
+    margin-bottom: var(--space-xxl);
+    padding: var(--space-xl);
+    background: var(--color-bg-header);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+}
+
+.app-header h1 {
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-xxxl);
+}
+
+.app-header p {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+}
+
+/* Footer del App */
+.app-footer {
+    text-align: center;
+    margin-top: var(--space-xxl);
+    padding: var(--space-lg);
+    color: var(--color-white);
+    opacity: 0.8;
+}
+
+/* Estados de carga y error */
+.loading {
+    text-align: center;
+    padding: var(--space-xxxl) var(--space-lg);
+    color: var(--color-white);
+}
+
+.spinner {
+    font-size: 3rem;
+    margin-bottom: var(--space-lg);
+    animation: spin 1s linear infinite;
+}
+
+.error-message {
+    background: var(--color-error);
+    color: var(--color-white);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+/* Estadísticas de productos */
+.products-stats {
+    background: var(--color-white);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+/* Estado sin productos */
+.no-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-xxxl) var(--space-lg);
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.no-products p {
+    font-size: var(--font-size-xl);
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+}
+
+.no-products span {
+    color: var(--color-text-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .App {
+        padding: var(--space-md);
+    }
+
+    .app-header h1 {
+        font-size: var(--font-size-xxl);
+    }
+
+    .app-header {
+        padding: var(--space-lg);
+        margin-bottom: var(--space-xl);
+    }
+}

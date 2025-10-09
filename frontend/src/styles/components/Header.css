@@ -1,0 +1,103 @@
+/* ===== HEADER COMPONENT ===== */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg) 0;
+}
+
+.logo h1 {
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+    font-size: var(--font-size-xxl);
+}
+
+.logo p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: var(--font-size-md);
+}
+
+/* Contenedor de acciones del header */
+.header-actions {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+}
+
+/* Botones del header */
+.filter-button,
+.cart-button {
+    color: var(--color-white);
+    border: none;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-xxl);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.filter-button {
+    background: var(--gradient-secondary);
+}
+
+.filter-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-purple);
+}
+
+.cart-button {
+    background: var(--gradient-primary);
+    position: relative;
+}
+
+.cart-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-blue);
+}
+
+/* Badge del carrito */
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--color-error);
+    color: var(--color-white);
+    border-radius: var(--radius-full);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        gap: var(--space-sm);
+        width: 100%;
+    }
+
+    .filter-button,
+    .cart-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo h1 {
+        font-size: var(--font-size-xl);
+    }
+}

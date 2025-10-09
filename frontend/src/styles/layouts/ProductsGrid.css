@@ -1,0 +1,148 @@
+/* ===== PRODUCTS GRID LAYOUT ===== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+}
+
+/* Product Card Base */
+.product-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xxl);
+}
+
+/* Product Image */
+.product-image {
+    background: var(--gradient-card);
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-placeholder {
+    font-size: 4rem;
+    opacity: 0.7;
+}
+
+/* Badges */
+.stock-badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: var(--color-success);
+    color: var(--color-white);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Product Info */
+.product-info {
+    padding: var(--space-lg);
+}
+
+.product-info h3 {
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-lg);
+}
+
+.product-description {
+    color: var(--color-text-light);
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+    font-size: var(--font-size-sm);
+}
+
+.product-price {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-error);
+    margin-bottom: var(--space-md);
+}
+
+/* Product Details */
+.product-details {
+    margin-bottom: var(--space-lg);
+}
+
+.detail-item {
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-lighter);
+}
+
+.detail-item strong {
+    color: var(--color-text);
+}
+
+/* Botón Agregar al Carrito */
+.add-to-cart-btn {
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-normal);
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+    background: var(--gradient-primary);
+    filter: brightness(0.9);
+    transform: scale(1.02);
+}
+
+.add-to-cart-btn:disabled {
+    background: var(--color-gray-400);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.add-to-cart-btn.in-cart {
+    background: var(--gradient-success);
+}
+
+.add-to-cart-btn.in-cart:hover {
+    background: var(--gradient-success);
+    filter: brightness(0.9);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .product-image {
+        height: 200px;
+    }
+
+    .image-placeholder {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}

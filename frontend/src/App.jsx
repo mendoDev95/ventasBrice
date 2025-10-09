@@ -9,7 +9,17 @@ import FilterSidebar from './components/FilterSidebar';
 import QuickViewModal from './components/QuickViewModal';
 import { ProductsGridSkeleton } from './components/ProductSkeleton';
 import { ToastContainer } from './components/Toast';
-import './App.css';
+import './styles/index.css';
+import './styles/utils/variables.css';
+import './styles/utils/animations.css';
+import './styles/layouts/App.css';
+import './styles/layouts/ProductsGrid.css';
+import './styles/components/Header.css';
+import './styles/components/Cart.css';
+import './styles/components/FilterSidebar.css';
+import './styles/components/QuickViewModal.css';
+import './styles/components/Toast.css';
+import './styles/components/ProductSkeleton.css';
 
 function App() {
   const [products, setProducts] = useState([]);
